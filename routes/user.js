@@ -42,7 +42,7 @@ route.post('/' , async(req,res)=> {
 // route to display all user 
 
 route.get('/all',authorize.isAuth ,async (req,res)=>{
-
+    // access token should be added followed by 'access-token' on headers
     try {
         User.find({}).populate('posts').exec((err,user)=>{
             if (err) return res.status(400).json(err);

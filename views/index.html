@@ -42,23 +42,23 @@
                       <tr>
                         <th scope="row">1</th>
                         <td>post</td>
-                        <td>/api/social/user/</td>
-                        <td>name,email,role</td>
-                        <td>create a new user</td>
+                        <td>{URL}/api/social/user/</td>
+                        <td>name,email & password</td>
+                        <td>New user with jwt token on console</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
                         <td>get</td>
-                        <td>/api/social/user/all</td>
-                        <td>n/a</td>
+                        <td>{URL}/api/social/user/all</td>
+                        <td>On headers['access-token']=jwt</td>
                         <td>return all users</td>
                             
                       </tr>
                       <tr>
                         <th scope="row">3</th>
                         <td >get</td>
-                        <td>/api/social/user/oneuser/:uuid</td>
-                        <td>n/a</td>
+                        <td>{URL}/api/social/user/oneuser/:uuid</td>
+                        <td>On headers['access-token']=jwt</td>
                         <td>return one user</td>
                         
                       </tr>
