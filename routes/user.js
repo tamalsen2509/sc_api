@@ -6,8 +6,16 @@ let route = express.Router();
 let User = require('../model/userModel');
 let bcrypt = require('bcrypt');
 let jwt = require('jsonwebtoken');
-let authorize = require('../auth/authHelper')
+let authorize = require('../auth/authHelper');
+let massege = require('../message/res_massege')
 
+// index route base url/api/social/user 
+// method get
+
+route.get('/', (req,res)=>{
+    res.status(200).json({massege})
+
+})
 
 
 // route for creating new user
