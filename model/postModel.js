@@ -9,13 +9,20 @@ let postModel = new mongoose.Schema({
         type : String, // type string is required
         default : idGen.generate()
     },
+    title : {
+        type : String,
+        required : [true, "Please add title for your post"],
+        max : [10, "Maximum 10 charcters are allowed"]
+    }
+    ,
     body : {
         type : String,
-        required : [ 'Name field is required' , true  ]
+        required : [ 'Please enter the post' , true  ],
+        max : [50,"Maximum 50 characters are allowed"]
     },
-    postedBy : {
-        type : mongoose.Schema.Types.ObjectId,
-        ref : 'User'
+    userId : {
+        type : mongoose.Types.ObjectId, ref: 'User',
+        required : true
     }
     
 },{

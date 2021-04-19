@@ -5,26 +5,20 @@ let User = require('../model/userModel');
 
 
 
-route.post('/' , async (req,res)=>{
+route.post('/create/:useruuid' , async(req,res)=>{
+    let UUID = req.params.useruuid;
+    let {title, body} = req.body;
     
     try {
-        let test = await User.findOne({userId : '9cb75d64-771a-4fb0-99b6-1d9fcf56a44d'});
-        let biju = await User.findOne({userId : '603e94ef-f73d-45bd-999f-1a0e7349feaa'});
-        //await test.save()
-        //await biju.save()
-
-        let testPost = await  new Post({body : 'Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum',postedBy :test._id },
-        {body : 'Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.',postedBy :test._id }   );
-
-
+        let user = await User.findOne({userId : UUID});
+        let userId = user._id
+        let newpost = await new Post({ title , body , userId })
+        await newpost.save();
+        return res.status(200).json({"status":true, "posts" : newpost })
     } catch (error) {
-        
+        return res.status(404).json(error)
     }
-
-
 })
-
-
 
 
 
